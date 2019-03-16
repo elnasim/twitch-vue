@@ -28,7 +28,7 @@
       ...mapState(['data', 'loading']),
     },
     created () {
-      this.getData('https://api.twitch.tv/helix/games/top')
+      this.getData('https://api.twitch.tv/helix/games/top?first=50')
     },
   }
 </script>
@@ -42,11 +42,11 @@
   .main-page-col {
     width: 20%;
     padding: 0 10px;
-    @media (max-width: 1200px) {
-      width: 50%;
+    @media (max-width: 700px) {
+      width: 33.333%;
     }
-    @media (max-width: 768px) {
-      width: 100%;
+    @media (max-width: 479px) {
+      width: 50%;
     }
   }
 </style>

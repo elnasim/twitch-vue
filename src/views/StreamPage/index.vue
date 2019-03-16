@@ -4,6 +4,11 @@
     <div v-else class="stream-page">
 
       <div class="stream-page__video-wrap">
+        <div class="stream-page__desc">
+          <div class="stream-page__title">{{data[0].title}}</div>
+          <div class="stream-page__title">{{data[0].user_name}}</div>
+          <div class="stream-page__online">{{data[0].viewer_count}}</div>
+        </div>
         <div class="stream-page__video">
           <iframe
                   :src="'https://player.twitch.tv/?channel=' + data[0].user_name"
@@ -13,9 +18,6 @@
                   scrolling="no"
                   allowfullscreen="true">
           </iframe>
-        </div>
-        <div class="stream-page__desc">
-          <div class="stream-page__title">{{data[0].title}}</div>
         </div>
       </div>
 
@@ -83,6 +85,23 @@
 
   .stream-page__title {
     color: rgba(#fff, .8);
+  }
+
+  .stream-page__online{
+    position: relative;
+    padding-left: 14px;
+    color: #ffffff;
+    &::before{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      border-radius: 100%;
+    }
   }
 
 </style>

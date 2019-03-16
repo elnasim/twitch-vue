@@ -1,6 +1,6 @@
 <template>
   <router-link :to="`stream/${id}`" class="stream" :title=title>
-    <img :src=getImg class="stream__preview">
+    <div class="stream__preview" :style="`background-image: url(${getImg});`"></div>
     <div class="stream__desc">
       <div class="stream__title">{{title}}</div>
       <div class="stream__channel-name">{{userName}}</div>
@@ -32,6 +32,15 @@
 
   .stream__preview {
     width: 100%;
+    margin: auto;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    &::before{
+      content: '';
+      padding-top: 50%;
+      float: left;
+    }
   }
 
   .stream__desc {
