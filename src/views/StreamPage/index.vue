@@ -12,7 +12,6 @@
         <div class="stream-page__video">
           <iframe
                   :src="'https://player.twitch.tv/?channel=' + data[0].user_name"
-                  height="500px"
                   width="100%"
                   frameborder="0"
                   scrolling="no"
@@ -62,6 +61,7 @@
 
   .stream-page {
     display: flex;
+    flex-wrap: wrap;
   }
 
   .stream-page__video-wrap {
@@ -71,12 +71,20 @@
 
   .stream-page__chat {
     width: 350px;
-    min-height: 500px;
+    @media (max-width: 991px) {
+      width: 100%;
+      height: 500px;
+    }
   }
 
   .stream-page__video {
-    min-height: 500px;
     background-color: #040404;
+    iframe {
+      height: 500px;
+      @media (max-width: 991px) {
+        height: 300px;
+      }
+    }
   }
 
   .stream-page__desc {
@@ -87,11 +95,11 @@
     color: rgba(#fff, .8);
   }
 
-  .stream-page__online{
+  .stream-page__online {
     position: relative;
     padding-left: 14px;
     color: #ffffff;
-    &::before{
+    &::before {
       content: '';
       position: absolute;
       left: 0;

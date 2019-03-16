@@ -48,6 +48,12 @@
   .top-streams-col {
     width: 25%;
     padding: 0 10px;
+    @media (max-width: 991px) {
+      width: 50%;
+    }
+    @media (max-width: 575px) {
+      width: 100%;
+    }
   }
 
 </style>
