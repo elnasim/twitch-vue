@@ -1,4 +1,4 @@
-# mytwitch
+# https://elnasim.github.io/vue/twitch-vue
 
 ## Project setup
 ```
