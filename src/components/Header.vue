@@ -7,7 +7,7 @@
 
 <script>
   export default {
-    name: 'Sidebar',
+    name: 'Header',
   }
 </script>
 
@@ -15,8 +15,7 @@
 
   .sidebar {
     background-color: #1a1e21;
-    width: 250px;
-    padding: 30px 0;
+    display: flex;
   }
 
   .sidebar__link {
@@ -25,6 +24,7 @@
     display: block;
     text-align: center;
     padding: 10px;
+    flex: 1;
     &.router-link-exact-active {
       background-color: #56783c;
     }

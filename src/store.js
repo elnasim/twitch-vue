@@ -7,6 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     'data': null,
+    'loading': false,
   },
 
   mutations: {
@@ -17,11 +18,16 @@ export default new Vuex.Store({
     GET_DATA (state, payload) {
       state.data = payload.data
     },
+
+    LOADING (state, payload) {
+      state.loading = payload
+    },
   },
 
   actions: {
 
     async getData ({ commit }, payload) {
+      commit('LOADING', true)
       commit('RESET_DATA')
       try {
         let config = {
@@ -35,6 +41,7 @@ export default new Vuex.Store({
       } catch (e) {
         console.log('-->', e)
       }
+      commit('LOADING', false)
     },
 
   },

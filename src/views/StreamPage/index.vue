@@ -1,45 +1,50 @@
 <template>
-  <div class="stream-page">
+  <div>
+    <Loading v-if="loading"/>
+    <div v-else class="stream-page">
 
-    <div class="stream-page__video-wrap">
-      <div class="stream-page__video">
-        <iframe
-                :src="'https://player.twitch.tv/?channel=' + data[0].user_name"
-                height="500px"
-                width="100%"
-                frameborder="0"
-                scrolling="no"
-                allowfullscreen="true">
+      <div class="stream-page__video-wrap">
+        <div class="stream-page__video">
+          <iframe
+                  :src="'https://player.twitch.tv/?channel=' + data[0].user_name"
+                  height="500px"
+                  width="100%"
+                  frameborder="0"
+                  scrolling="no"
+                  allowfullscreen="true">
+          </iframe>
+        </div>
+        <div class="stream-page__desc">
+          <div class="stream-page__title">{{data[0].title}}</div>
+        </div>
+      </div>
+
+      <div class="stream-page__chat">
+        <iframe frameborder="0"
+                scrolling="yes"
+                src="https://www.twitch.tv/embed/DreamHackDota2_RU/chat"
+                height="100%"
+                width="100%">
         </iframe>
       </div>
-      <div class="stream-page__desc">
-        <div class="stream-page__title">{{data[0].title}}</div>
-      </div>
-    </div>
 
-    <div class="stream-page__chat">
-      <iframe frameborder="0"
-              scrolling="yes"
-              id="LCK_Korea"
-              src="https://www.twitch.tv/embed/hebo/chat"
-              height="100%"
-              width="100%">
-      </iframe>
     </div>
-
   </div>
+
 </template>
 
 <script>
   import { mapActions, mapState } from 'vuex'
+  import Loading from '../../components/Loading'
 
   export default {
     name: 'index',
+    components: { Loading },
     methods: {
       ...mapActions(['getData']),
     },
     computed: {
-      ...mapState(['data']),
+      ...mapState(['data', 'loading']),
 
       getID () {
         return this.$route.params.id
@@ -63,7 +68,7 @@
   }
 
   .stream-page__chat {
-    width: 300px;
+    width: 350px;
     min-height: 500px;
   }
 

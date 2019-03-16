@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="app">
-      <Sidebar/>
+      <Header/>
       <div class="app-body">
         <router-view/>
       </div>
@@ -10,10 +10,10 @@
 </template>
 
 <script>
-  import Sidebar from './components/Sidebar'
+  import Header from './components/Header'
 
   export default {
-    components: { Sidebar },
+    components: { Header },
   }
 </script>
 
@@ -21,11 +21,10 @@
   @import "assets/style";
 
   .app {
-    display: flex;
     min-height: 100vh;
   }
 
-  .app-body{
+  .app-body {
     flex: 1;
     background-color: #181c20;
     padding: 30px 0;
